@@ -13,19 +13,18 @@ import java.io.IOException;
 
 public class TypingTest extends JFrame implements KeyListener, ActionListener {
 
-    private JTextArea textArea;
-    private JPanel mainPanel;
-    private JButton regenerateTextButton;
-    private JButton startTest;
-    private JRadioButton tenWords;
-    private JRadioButton fifteenWords;
-    private JRadioButton thirtyWords;
-    private JLabel wordWPM;
-    private JLabel resultWPM;
-    private ButtonGroup groupOfRadioButtons;
+    private final JTextArea textArea;
+    private final JPanel mainPanel;
+    private final JButton regenerateTextButton;
+    private final JButton startTest;
+    private final JRadioButton tenWords;
+    private final JRadioButton fifteenWords;
+    private final JRadioButton thirtyWords;
+    private final JLabel wordWPM;
+    private final JLabel resultWPM;
     private String testText;
-    private char cursorCharacter = '|';
-    private RandomWords randomWords;
+    private final char cursorCharacter = '|';
+    private final RandomWords randomWords;
     private String userInput = "";
     private int currentCursorIndex = 0;
     private boolean keyDoNotPressed = true;
@@ -121,7 +120,7 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
         thirtyWords.setBackground(Color.decode(TestConsts.buttonsBackgroundColor));
 
         // Merge buttons
-        groupOfRadioButtons = new ButtonGroup();
+        ButtonGroup groupOfRadioButtons = new ButtonGroup();
         groupOfRadioButtons.add(tenWords);
         groupOfRadioButtons.add(fifteenWords);
         groupOfRadioButtons.add(thirtyWords);
@@ -212,14 +211,14 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
         if ((currentCursorIndex + 3) <= charArrayFromText.length)
             currentCursorIndex++;
 
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         for (char character : charArrayFromText) {
-            output += character;
+            output.append(character);
         }
 
         // Update visible text
-        this.testText = output;
+        this.testText = output.toString();
         textArea.setText(testText);
     }
 
@@ -236,15 +235,15 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
 
         currentCursorIndex--;
 
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
 
         for (char character : charArrayFromText) {
-            output += character;
+            output.append(character);
         }
 
         // Update visible text
-        this.testText = output;
+        this.testText = output.toString();
         textArea.setText(testText);
 
     }
