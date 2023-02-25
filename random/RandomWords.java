@@ -18,8 +18,13 @@ public class RandomWords {
         List<String> wordsList = WorkWithJson.readFromJson();
 
         // Concat result string with random words
-        for (int i = 0; i <= length; i++)
-            output = output.concat(wordsList.get(new Random().nextInt(wordsList.size())) + " ");
+        for (int i = 0; i <= length; i++) {
+            // Get random index
+            int randomIndex = new Random().nextInt(wordsList.size());
+            // Discarding empty values
+            if (!(wordsList.get(randomIndex).isEmpty()))
+                output = output.concat(wordsList.get(randomIndex) + " ");
+        }
 
         return output.trim();
     }

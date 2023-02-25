@@ -90,7 +90,7 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
 
         //JLabel result WPM config
         wordWPM = new JLabel();
-        wordWPM.setText("WPM:");
+        wordWPM.setText("WPM");
         wordWPM.setFont(new Font(TestConsts.mainFont, Font.PLAIN, 28));
         wordWPM.setForeground(Color.white);
         wordWPM.setBounds(18, 10, 100, 60);
@@ -99,7 +99,7 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
         resultWPM.setText("?");
         resultWPM.setFont(new Font(TestConsts.mainFont, Font.PLAIN, 28));
         resultWPM.setForeground(Color.white);
-        resultWPM.setBounds(32, 55, 100, 60);
+        resultWPM.setBounds(38, 55, 100, 60);
 
         // Radio buttons for length of text
         tenWords = new JRadioButton("10");
@@ -278,9 +278,9 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
                 cursorToNextCharacter();
             }
 
-            // Complete test case
+            // Test is completed case
             if (testIsCompleted()) {
-                textArea.setForeground(Color.GREEN);
+                textArea.setForeground(TestConsts.testCompletedColor);
                 setEndTestTime(toSecond(System.currentTimeMillis()));
                 resultWPM.setText(String.valueOf((int) calculateWPM(endTestTime - startTestTime)));
                 testCompleted = true;
@@ -299,7 +299,7 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
                 textNowCorrect = true;
                 textArea.setForeground(Color.decode(TestConsts.foregroundTextAreaColor));
             } else {
-                textArea.setForeground(Color.RED);
+                textArea.setForeground(TestConsts.testIncorrectColor);
                 textNowCorrect = false;
             }
 
@@ -312,7 +312,7 @@ public class TypingTest extends JFrame implements KeyListener, ActionListener {
                 textNowCorrect = true;
                 textArea.setForeground(Color.decode(TestConsts.foregroundTextAreaColor));
             } else {
-                textArea.setForeground(Color.RED);
+                textArea.setForeground(TestConsts.testIncorrectColor);
                 textNowCorrect = false;
             }
         }
