@@ -42,7 +42,7 @@ To install, you need to create a maven project and place the repository in the j
 ___
 
 The test takes words from a JSON file with the 1000 most used words, so you either need to add it yourself to resources/json, you can find it
-[here.](https://monkeytype.com/)
+[here.](https://github.com/ViLsonCake/Typing-speed-test-words-json)
 
 Or get this file by yourself using the WriteEnglishWordsToJSON class by running it. The words themselves are parsed from the 
 [here.](https://gonaturalenglish.com/1000-most-common-words-in-the-english-language/)
